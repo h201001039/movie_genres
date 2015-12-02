@@ -4,7 +4,9 @@ import os
 import re
 ia = imdb.IMDb()
 print(os.getcwd())
-for i in os.listdir("/run/media/harsh/My Passport/movies/hollywood"):
+inp=str(raw_input("enter the movie directory location: "))
+print(inp)
+for i in os.listdir(inp):
     i=i.replace("."," ")
     i=i.strip("avi")
     i=i.strip("mkv")
@@ -15,7 +17,7 @@ for i in os.listdir("/run/media/harsh/My Passport/movies/hollywood"):
         if(len(s_result)>0):
             x=s_result[0]
             ia.update(x)
-            print(x)
-            print(name)
+            #print(x)
+            #print(name)
             if(x.has_key('genres') and x.has_key('rating')):
                print(name+"-"+str(x['rating'])+"  "+str(x['genres']))
